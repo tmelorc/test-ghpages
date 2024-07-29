@@ -14,7 +14,7 @@ import tkinter as tk
 from tkinter import ALL
 from constantes import *
 from dicionario_dados import *
-
+from sys import platform
 
 def subs(palavra):
     for k in replace_dic.keys():
@@ -411,8 +411,8 @@ if __name__ == '__main__':
     root.attributes('-fullscreen', False)
     root.attributes('-zoomed', True)
 
-    icon = tk.PhotoImage(file=os.path.join(basedir, icon_file)) #/home/thiago/Dropbox/programacao/grade/icone-m.png
-    root.iconphoto(False, icon)
+    #icon = tk.PhotoImage(file=os.path.join(basedir, icon_file)) #/home/thiago/Dropbox/programacao/grade/icone-m.png
+    #root.iconphoto(False, icon)
 
     # layout all of the main containers
     root.grid_rowconfigure(1, weight=1)
@@ -531,4 +531,12 @@ if __name__ == '__main__':
     #draw_grid()
     
     # main loop
+    
+    if platform == "linux":
+        print('Linux')
+    elif platform == "darwin":
+        None
+    elif platform == "win32":
+        print('Windows')
+    
     root.mainloop()
