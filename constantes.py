@@ -1,6 +1,9 @@
 DATA = '29/07/2024'
 # {datetime.today().strftime("%d/%m/%Y")}
 
+LINUX = False
+WINDOWS = False
+
 # diretórios
 csv_dir = './csv/'
 #tex_dir = 'tex/'

@@ -2,8 +2,10 @@
 TODO
     altura e distância vertical entre bbox dos dias da semana precisa ser automatizada
 
+    pyinstaller --onefile --windowed --icon=icon.ico --add-data="icon.ico;." --name="Grade Curricular Matemática - IGCE Unesp" GUIgrade-user.py
 BUG
 '''
+
 
 MODE = 'USER'
 csv_file = None
@@ -15,6 +17,14 @@ from tkinter import ALL
 from constantes import *
 from dicionario_dados import *
 from sys import platform
+
+if platform == "linux":
+    LINUX = True
+elif platform == "darwin":
+    None
+elif platform == "win32":
+    WINDOWS = True
+
 
 def subs(palavra):
     for k in replace_dic.keys():
@@ -148,7 +158,8 @@ def on_key_press(event):
         checkbutton_semestre1.toggle()
     elif event.char.lower() == 'z':
         toggle_semester(2)
-        checkbutton_semestre2.toggle()
+    elif event.char.lower() == 'r':
+        resetar_grade(None)
 
 
 def toggle_full_screen(dummy=None):
@@ -401,18 +412,36 @@ def create_canvas(csv_file):
 if __name__ == '__main__':
     
     basedir = os.path.dirname(__file__)
-    icon_file = 'icone-m.png'
-    icon_file = 'hopf.png'
-    icon_file = 'icone.png'
 
     # main window
     root = tk.Tk()
-    root.title('Grade Curricular Matematica - IGCE Unesp')
-    root.attributes('-fullscreen', False)
-    root.attributes('-zoomed', True)
+    root.title('Grade Curricular Matemática - IGCE Unesp')
+    
+    if LINUX:
+    #root.attributes('-fullscreen', False)
+        root.attributes('-zoomed', True)
+        icon_file = 'icone-m.png'
+        #icon_file = 'hopf.png'
+        #icon_file = 'icone.png'
 
-    #icon = tk.PhotoImage(file=os.path.join(basedir, icon_file)) #/home/thiago/Dropbox/programacao/grade/icone-m.png
-    #root.iconphoto(False, icon)
+        #icon = tk.PhotoImage(file=os.path.join(basedir, icon_file)) #/home/thiago/Dropbox/programacao/grade/icone-m.png
+        #root.iconphoto(False, icon)
+
+    
+    if WINDOWS:
+        root.state("zoomed")
+
+        icon_file = 'icon.ico'
+        root.iconbitmap(os.path.join(basedir, icon_file))
+        
+        try:
+            from ctypes import windll  # Only exists on Windows.
+    
+            myappid = "mat.igce.unesp.29.07.2024"
+            windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
+        except ImportError:
+            pass
+
 
     # layout all of the main containers
     root.grid_rowconfigure(1, weight=1)
@@ -508,23 +537,28 @@ if __name__ == '__main__':
     checkbutton_modalidadeB.select()
 
     # labels para teclas de atalho
-    label_Reset = tk.Label(header_frame, text='Reset (F5)',
+    label_Reset = tk.Label(header_frame, text='Reset', underline=0,
                            font=('Arial', 12), fg='red')
     label_Reset.pack(side='left', padx=3, pady=3)
     label_F11 = tk.Label(header_frame, text='Tela Cheia (F11)',
                          font=('Arial', 12), fg='blue')
     label_F11.pack(side='left', padx=3, pady=3)
+    label_Zoom = tk.Label(header_frame, text='Zoom (-/+)',
+                         font=('Arial', 12), fg='brown')
+    label_Zoom.pack(side='left', padx=3, pady=3)
     label_ESC = tk.Label(header_frame, text='Sair (ESC)',
                          font=('Arial', 12), fg='brown')
     label_ESC.pack(side='left', padx=3, pady=3)
 
     # eventos da main window
     root.bind('-', do_zoom_out)
+    root.bind('_', do_zoom_out)
     root.bind('=', do_zoom_in)
+    root.bind('+', do_zoom_in)
     root.bind('0', do_zoom_reset)
     root.bind('<KeyPress>', on_key_press)
     root.bind('<F11>', toggle_full_screen)
-    root.bind('<F5>', resetar_grade)
+    #root.bind('<F5>', resetar_grade)
     root.bind('<Escape>', lambda x: root.destroy())
 
     #canvas.create_rectangle(0, 0, 200, altura_semestre[1] * altura_caixa + (altura_semestre[1] - 1 ) * delta_caixa )
@@ -532,11 +566,5 @@ if __name__ == '__main__':
     
     # main loop
     
-    if platform == "linux":
-        print('Linux')
-    elif platform == "darwin":
-        None
-    elif platform == "win32":
-        print('Windows')
     
     root.mainloop()
