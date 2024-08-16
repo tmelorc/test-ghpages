@@ -1,4 +1,4 @@
-DATA = '30/07/2024'
+DATA = '16/08/2024'
 VERSION = '1.0'
 # {datetime.today().strftime("%d/%m/%Y")}
 
@@ -13,7 +13,7 @@ week_days = ['seg', 'ter', 'qua', 'qui', 'sex', 'sab', 'dom']
 # semestres
 semestres = [1, 2]
 
-#clf = ['disciplina', 'ano', 'semestre', 'modalidade',       'dia', 'hora', 'Carga Horária', 'status']
+#clf = ['disciplina', 'ano', 'semestre', 'modalidade', 'dia', 'hora', 'Carga Horária', 'status']
 
 # dimensões/espaçamento das caixas
 largura_caixa = 170
@@ -29,6 +29,7 @@ altura_semestre = {1: 0, 2: 0}
 primeira_hora = {1: 24, 2: 24}
 ultima_hora = {1: 0, 2: 0}
 
+drag_data = {"x": 0, "y": 0}
 
 #yoffset = 600
 yoffset_dic = {
@@ -72,4 +73,4 @@ curr_canvas = []
 info_message = ''
 
 if __name__ == '__main__':
-    print('teste')
+    print('Arquivo', __file__)

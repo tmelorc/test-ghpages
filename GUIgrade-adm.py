@@ -36,12 +36,12 @@ def subs(palavra):
 
 
 def check_hand_enter(event):
-    curr_canvas[-1].config(cursor="question_arrow")
+    #curr_canvas[-1].config(cursor="question_arrow")
     show_text(event)
 
 
 def check_hand_leave(event):
-    curr_canvas[-1].config(cursor="arrow")
+    #curr_canvas[-1].config(cursor="arrow")
     #show_text(event)
     csv_labelText.set(info_message)
     csv_Label.config(bg=root.cget("background"))
@@ -194,6 +194,10 @@ def toggle_full_screen(dummy=None):
 
 def do_zoom_in(event):
     global zoom_ctr
+
+    if zoom_ctr > 8:
+        return None
+
     zoom_ctr += 1
     x = curr_canvas[-1].canvasx(event.x)
     y = curr_canvas[-1].canvasy(event.y)
@@ -206,9 +210,16 @@ def do_zoom_in(event):
                                           font=("Arial", int(curr_canvas[-1].fontSize)))
     curr_canvas[-1].scale(ALL, x, y, factor, factor)
 
+    bb = curr_canvas[-1].bbox("all")
+    curr_canvas[-1].configure(scrollregion=(bb[0] - 10, bb[1] - 10, bb[2] + 20, bb[3] + 20))
+
 
 def do_zoom_out(event):
     global zoom_ctr
+
+    if zoom_ctr < -15:
+        return None
+
     zoom_ctr -= 1
     x = curr_canvas[-1].canvasx(event.x)
     y = curr_canvas[-1].canvasy(event.y)
@@ -220,6 +231,10 @@ def do_zoom_out(event):
             curr_canvas[-1].itemconfigure(item,
                                           font=("Arial", int(curr_canvas[-1].fontSize)))
     curr_canvas[-1].scale(ALL, x, y, factor, factor)
+
+    bb = curr_canvas[-1].bbox("all")
+    curr_canvas[-1].configure(scrollregion=(bb[0] - 10, bb[1] - 10, bb[2] + 20, bb[3] + 20))
+    
 
 
 def do_zoom_reset(event):
@@ -233,6 +248,7 @@ def do_zoom_reset(event):
 
 def show_text(event):
     start_drag(event)
+    return None
 
     x, y = event.x, event.y
     foo = curr_canvas[-1].find_closest(x, y, halo=3, start=None)
@@ -258,12 +274,26 @@ def show_text(event):
         
 
 def start_drag(event):
+    drag_data["x"] = event.x
+    drag_data["y"] = event.y
+
+
+def move_canvas(event):
+    delta_x = event.x - drag_data["x"]
+    delta_y = event.y - drag_data["y"]
+    curr_canvas[-1].xview_scroll(delta_x, "units")
+    curr_canvas[-1].yview_scroll(delta_y, "units")
+    drag_data["x"] = event.x
+    drag_data["y"] = event.y
+
+
+def old_start_drag(event):
     # Inicia o arrasto do mouse
     global last_x, last_y
     last_x, last_y = event.x, event.y
 
 
-def move_canvas(event):
+def old_move_canvas(event):
     # Calcula o deslocamento do mouse
     global last_x, last_y
     dx = event.x - last_x
@@ -359,12 +389,6 @@ def draw_on_canvas(canvas, csv_file, semestre, dia):
                         #activefill='gray',
                         )
 
-
-        canvas.tag_bind('texto_disc', "<Enter>", lambda event: check_hand_enter(event))
-        canvas.tag_bind('texto_disc', "<Leave>", lambda event: check_hand_leave(event))
-        canvas.tag_bind('caixa_disc', "<Enter>", lambda event: check_hand_enter(event))
-        canvas.tag_bind('caixa_disc', "<Leave>", lambda event: check_hand_leave(event))
-    
         wrapped = textwrap.fill(disciplina, 25)
         text = f'{wrapped}\n{dia} ({hora_begin}-{hora_end})\n{ano} ano ({modalidade})'
     
@@ -402,7 +426,7 @@ def draw_on_canvas(canvas, csv_file, semestre, dia):
         # bbox do dia
         canvas.create_rectangle(
                         xmin, ymin, xmax, ymax, 
-                        state='normal', 
+                        state='disabled', 
                         tag=[f'bb{dia}'],
                         fill=cores_tkinter['bbox'],
                         #activefill='gray',
@@ -413,7 +437,7 @@ def draw_on_canvas(canvas, csv_file, semestre, dia):
         # faixa acima do bbox do dia
         canvas.create_rectangle(
                         xmin, ymin - 30, xmax , ymin - 5,
-                        state='normal', 
+                        state='disabled', 
                         tag=[f'bb{dia}'],
                         fill='#F0EDDC', 
                         #activefill='gray',
@@ -424,9 +448,10 @@ def draw_on_canvas(canvas, csv_file, semestre, dia):
         # texto da faixa acima do bbox do dia
         canvas.create_text(
                         (xmin + xmax)/2, ymin - 15,
+                        state='disabled',
                         text=f'{dia} - sem. {semestre}',
                         font=('Arial', 10, 'bold'),
-                        tag=(f'texto',),
+                        tag=('texto')
                         )
 
         canvas.tag_lower(f'bb{dia}', 1)
@@ -445,7 +470,7 @@ def create_dic(csv_file, semestre, dia):
             modalidade = linha['modalidade']
             disciplina = linha['disciplina'].replace('Geometria','Geom.').replace('Cálculo Diferencial','Cálc. Dif.').replace('Teoria','Teo.').replace('Educação','Ed.').replace('Matemática','Mat.').replace('Equações','Eq.').replace('Funções','Fçs.').replace('Euclidiana','Eucl.').replace('Variável','Var.').replace('Supervisionado','Superv.')
             tkinter_cor = cores_tkinter[int(ano)]
-            credito_disciplina = float(linha['Carga Horária']) // 15
+            #credito_disciplina = float(linha['Carga Horária']) // 15
             status = linha['status']
             
             if status == 'old':
@@ -466,8 +491,6 @@ def create_dic(csv_file, semestre, dia):
 
 
 def create_canvas(csv_file):
-    #primeira_hora = {1: 24, 2: 24}
-    #ultima_hora = {1: 0, 2: 0}
 
     canvas = tk.Canvas(root, bg='white', width=screen_width,
                        height=int(0.8*screen_height))
@@ -476,6 +499,21 @@ def create_canvas(csv_file):
     curr_canvas[-1].fontSize = 10
     canvas.focus_set()
 
+    for dia in week_days:
+        for semestre in [1, 2]:
+            draw_on_canvas(canvas, csv_file, semestre, dia)
+
+    # scrollbars
+    hbar = tk.Scrollbar(curr_canvas[-1], orient="horizontal", command=curr_canvas[-1].xview)
+    hbar.pack(side=tk.BOTTOM, fill=tk.X)
+    curr_canvas[-1].configure(xscrollcommand=hbar.set)
+    
+    vbar = tk.Scrollbar(curr_canvas[-1], orient="vertical", command=curr_canvas[-1].yview)
+    vbar.pack(side=tk.RIGHT, fill=tk.Y)
+    curr_canvas[-1].configure(yscrollcommand=vbar.set)
+
+    canvas.tag_bind('caixa_disc', "<Enter>", lambda event: check_hand_enter(event))
+    canvas.tag_bind('caixa_disc', "<Leave>", lambda event: check_hand_leave(event))
     canvas.bind("<Left>", lambda event: canvas.xview_scroll(-1, "units"))
     canvas.bind("<Right>", lambda event: canvas.xview_scroll(1, "units"))
     canvas.bind("<Up>", lambda event: canvas.yview_scroll(-1, "units"))
@@ -486,20 +524,21 @@ def create_canvas(csv_file):
         canvas.bind('<4>', do_zoom_in)
         canvas.bind('<5>', do_zoom_out)
     if WINDOWS:
+        # https://tkdocs.com/shipman/event-handlers.html
         None
         #canvas.bind('<MouseWheel>', do_zoom_in)
         #canvas.bind('<MouseWheel>', do_zoom_out)
 
-    for dia in week_days:
-        for semestre in [1, 2]:
-            draw_on_canvas(canvas, csv_file, semestre, dia)
+    bb = curr_canvas[-1].bbox("all")
+    curr_canvas[-1].configure(
+                    scrollregion=(bb[0] - 10, bb[1] - 10, bb[2] + 20, bb[3] + 20))
 
     return canvas
 
 def load_csv(csv_file):
     # load the csv file, sort it by ano, semestre, disciplina, modalidade
     # the output is a list of dic for each row
-    with open(csv_file, newline='') as csvfile:
+    with open(csv_file, newline='', encoding='utf8') as csvfile:
         spamreader = csv.DictReader(filter(lambda row: row[0]!='#', csvfile), delimiter=",")
         tmp = sorted(spamreader, key=lambda row:(row['ano'],row['semestre'],row['disciplina'],row['modalidade']), reverse=False)
     return tmp
@@ -518,6 +557,7 @@ def open_csv():
         csv_Label.config(bg=root.cget("background"))
         root.title(f'[{os.path.split(csv_file)[-1]}] ' + TITLE)
         curr_canvas.pop().destroy()
+        zoom_ctr = 0
         canvas = create_canvas(csv_file)
 
 def sair(event):
@@ -525,12 +565,11 @@ def sair(event):
     if ans:
         root.destroy()
 
-
 if __name__ == '__main__':
 
     basedir = os.path.dirname(__file__)
     csv_dir = os.path.join(basedir, 'csv')
-    csv_file = os.path.join(csv_dir, 'grade-nova.csv')
+    csv_file = os.path.join(csv_dir, 'grade-old-new.csv')
     #print(csv_dir)
     #print(csv_file)
 
@@ -575,6 +614,16 @@ if __name__ == '__main__':
     canvas = create_canvas(csv_file)
     curr_canvas[-1].fontSize = 10
 
+    '''
+    # scrollbars
+    hbar = tk.Scrollbar(curr_canvas[-1], orient="horizontal", command=curr_canvas[-1].xview)
+    hbar.pack(side=tk.BOTTOM, fill=tk.X)
+    curr_canvas[-1].configure(xscrollcommand=hbar.set)
+    
+    vbar = tk.Scrollbar(curr_canvas[-1], orient="vertical", command=curr_canvas[-1].yview)
+    vbar.pack(side=tk.RIGHT, fill=tk.Y)
+    curr_canvas[-1].configure(yscrollcommand=vbar.set)
+    '''
     # barra de rodapé
     footer_frame = tk.Frame(root, height=12)
     footer_frame.grid(row=2, columnspan=True, sticky='we')
@@ -586,7 +635,7 @@ if __name__ == '__main__':
     csv_labelText.set(info_message)
     csv_Label = tk.Label(
         footer_frame,
-        text=f'{csv_file}',
+        #text=f'{csv_file}',
         textvariable=csv_labelText,
         font=('Arial', 12),
         #fg='blue',
@@ -630,33 +679,32 @@ if __name__ == '__main__':
     checkbutton_ano4.select()
 
     # checkbuttons para os semestres
-    checkbutton_semestre1 = tk.Checkbutton(header_frame, text=f'1 sem (A)', underline=7, font=(
+    checkbutton_semestre1 = tk.Checkbutton(header_frame, text=f'1 sem (A)', font=(
         'Arial', 12), variable=checkVarSem1, onvalue=1, offvalue=0, command=lambda: toggle_semester(1))
     checkbutton_semestre1.pack(side='left', padx=3, pady=3)
     checkbutton_semestre1.select()
-    checkbutton_semestre2 = tk.Checkbutton(header_frame, text=f'2 sem (Z)', underline=7, font=(
+    checkbutton_semestre2 = tk.Checkbutton(header_frame, text=f'2 sem (Z)', font=(
         'Arial', 12), variable=checkVarSem2, onvalue=1, offvalue=0, command=lambda: toggle_semester(2))
     checkbutton_semestre2.pack(side='left', padx=3, pady=3)
     checkbutton_semestre2.select()
 
     # checkbuttons para as modalidades
-    checkbutton_modalidadeC = tk.Checkbutton(header_frame, text=f'Comum', fg='darkblue', underline=0, font=(
+    checkbutton_modalidadeC = tk.Checkbutton(header_frame, text=f'Comum (C)', fg='darkblue', font=(
         'Arial', 12), variable=checkVarModalidadeC, onvalue=1, offvalue=0, command=lambda: toggle_modalidade('C'))
     checkbutton_modalidadeC.pack(side='left', padx=3, pady=3)
     checkbutton_modalidadeC.select()
-    checkbutton_modalidadeL = tk.Checkbutton(header_frame, text=f'Lic', fg='darkblue', underline=0, font=(
+    checkbutton_modalidadeL = tk.Checkbutton(header_frame, text=f'Lic (L)', fg='darkblue', font=(
         'Arial', 12), variable=checkVarModalidadeL, onvalue=1, offvalue=0, command=lambda: toggle_modalidade('L'))
     checkbutton_modalidadeL.pack(side='left', padx=3, pady=3)
     checkbutton_modalidadeL.select()
-    checkbutton_modalidadeB = tk.Checkbutton(header_frame, text=f'Bach', fg='darkblue', underline=0, font=(
+    checkbutton_modalidadeB = tk.Checkbutton(header_frame, text=f'Bach (B)', fg='darkblue', font=(
         'Arial', 12), variable=checkVarModalidadeB, onvalue=1, offvalue=0, command=lambda: toggle_modalidade('B'))
     checkbutton_modalidadeB.pack(side='left', padx=3, pady=3)
     checkbutton_modalidadeB.select()
 
     # labels para teclas de atalho
-    label_Reset = tk.Label(header_frame, text='Reset', underline=0,
+    label_Reset = tk.Label(header_frame, text='Reset (R)',
                            font=('Arial', 12), fg='red')
-    label_Reset.pack(side='left', padx=3, pady=3)
     label_F11 = tk.Label(header_frame, text='Tela Cheia (F11)',
                          font=('Arial', 12), fg='blue')
     label_Zoom = tk.Label(header_frame, text='Zoom (-/+)',
@@ -669,18 +717,22 @@ if __name__ == '__main__':
     label_Open.pack(side='right', padx=3, pady=3)
     label_F11.pack(side='right', padx=3, pady=3)
     label_Zoom.pack(side='right', padx=3, pady=3)
+    label_Reset.pack(side='right', padx=3, pady=3)
 
     # eventos da main window
     root.bind('-', do_zoom_out)
+    root.bind('_', do_zoom_out)
+    root.bind('<KP_Subtract>', do_zoom_out)
     root.bind('=', do_zoom_in)
+    root.bind('+', do_zoom_in)
+    root.bind('<KP_Add>', do_zoom_in)
     root.bind('0', do_zoom_reset)
     root.bind('<KeyPress>', on_key_press)
     root.bind('<Escape>', sair)
     root.bind('<F11>', toggle_full_screen)
     root.bind('<Control-o>', lambda x: open_csv())
 
-    #canvas.create_rectangle(0, 0, 200, altura_semestre[1] * altura_caixa + (altura_semestre[1] - 1 ) * delta_caixa )
-    #draw_grid()
-
+    #root.bind('<Motion>', motion)
+    
     # main loop
     root.mainloop()

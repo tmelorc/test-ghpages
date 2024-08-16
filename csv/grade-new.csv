@@ -1,0 +1,117 @@
+Turma,disciplina,Carga Horária,Departamento,ano,semestre,modalidade,Docentes,dia,hora,status
+MAT010815-MATEMÁT.,Álgebra Linear I,60.0,DM,2,1,C,Lucas Carato Mazzi,ter,14-16,
+MAT010815-MATEMÁT.,Álgebra Linear I,60.0,DM,2,1,C,Lucas Carato Mazzi,sex,14-16,
+MAT012315-MATEMÁT.,Álgebra Linear II,60.0,DM,2,2,B,Marta Cilene Gadotti,ter,14-16,new
+MAT012315-MATEMÁT.,Álgebra Linear II,60.0,DM,2,2,B,Marta Cilene Gadotti,sex,16-18,
+MAT003815-MATEMÁT.,Análise Funcional,60.0,DM,4,2,B,Suzete Maria Silva Afonso,qua,10-12,
+MAT003815-MATEMÁT.,Análise Funcional,60.0,DM,4,2,B,Suzete Maria Silva Afonso,qui,16-18,new
+MAT001915-MATEMÁT.,Análise Matemática I,90.0,DM,3,1,C,Marco Antonio de Freitas Contessoto,seg,8-10,
+MAT001915-MATEMÁT.,Análise Matemática I,90.0,DM,3,1,C,Marco Antonio de Freitas Contessoto,qua,10-12,
+MAT001915-MATEMÁT.,Análise Matemática I,90.0,DM,3,1,C,Marco Antonio de Freitas Contessoto,qui,8-10,
+MAT003115-MATEMÁT.,Análise Matemática II,60.0,DM,3,2,B,Jamil Viana Pereira,seg,8-10,
+MAT003115-MATEMÁT.,Análise Matemática II,60.0,DM,3,2,B,Jamil Viana Pereira,ter,16-18,new
+MAT003315-MATEMÁT.,Análise Matemática III,60.0,DM,4,1,B,Suzete Maria Silva Afonso,ter,14-16,
+MAT003315-MATEMÁT.,Análise Matemática III,60.0,DM,4,1,B,Suzete Maria Silva Afonso,qua,16-18,
+MAT008515-MATEMÁT.,Cálculo Diferencial e Integral I,90.0,DM,1,1,C,Renata Zotin Gomes de Oliveira Thais Fernanda Mendes Monis,seg,8-10,
+MAT008515-MATEMÁT.,Cálculo Diferencial e Integral I,90.0,DM,1,1,C,Renata Zotin Gomes de Oliveira Thais Fernanda Mendes Monis,qua,8-10,
+MAT008515-MATEMÁT.,Cálculo Diferencial e Integral I,90.0,DM,1,1,C,Renata Zotin Gomes de Oliveira Thais Fernanda Mendes Monis,sex,8-10,
+MAT008615-MATEMÁT.,Cálculo Diferencial e Integral II,90.0,DM,1,2,C,Renata Zotin Gomes de Oliveira,seg,8-10,
+MAT008615-MATEMÁT.,Cálculo Diferencial e Integral II,90.0,DM,1,2,C,Renata Zotin Gomes de Oliveira,qua,8-10,
+MAT008615-MATEMÁT.,Cálculo Diferencial e Integral II,90.0,DM,1,2,C,Renata Zotin Gomes de Oliveira,sex,8-10,
+MAT010415-MATEMÁT.,Cálculo Diferencial e Integral III,60.0,DM,2,1,C,Carina Alves,qua,14-16,
+MAT010415-MATEMÁT.,Cálculo Diferencial e Integral III,60.0,DM,2,1,C,Carina Alves,sex,8-10,
+MAT011015-MATEMÁT.,Cálculo Diferencial e Integral IV,60.0,DM,2,2,C,Jamil Viana Pereira,seg,14-16,
+MAT011015-MATEMÁT.,Cálculo Diferencial e Integral IV,60.0,DM,2,2,C,Jamil Viana Pereira,qua,14-16,
+MAT011115-MATEMÁT.,Desenho Geométrico e Geometria Descritiva,60.0,DM,2,2,C,Rúbia Barcelos Amaral Schio,qua,10-12,
+MAT011115-MATEMÁT.,Desenho Geométrico e Geometria Descritiva,60.0,DM,2,2,C,Rúbia Barcelos Amaral Schio,qui,14-16,
+MAT009115-MATEMÁT.,Educação Financeira numa perspectiva crítica,60.0,DM,1,2,C,Lucas Carato Mazzi,seg,14-16,
+MAT009115-MATEMÁT.,Educação Financeira numa perspectiva crítica,60.0,DM,1,2,C,Lucas Carato Mazzi,qua,10-12,
+MAT010915-MATEMÁT.,Equações de Diferenças,60.0,DM,2,1,C,Renata Zotin Gomes de Oliveira,qua,10-12,
+MAT010915-MATEMÁT.,Equações de Diferenças,60.0,DM,2,1,C,Renata Zotin Gomes de Oliveira,sex,10-12,
+MAT002115-MATEMÁT.,Equações Diferenciais Ordinárias,60.0,DM,3,2,C,Marta Cilene Gadotti,seg,10-12,
+MAT002115-MATEMÁT.,Equações Diferenciais Ordinárias,60.0,DM,3,2,C,Marta Cilene Gadotti,qui,8-10,
+MAT002315-MATEMÁT.,Espaços Métricos,60.0,DM,3,1,B,Suzete Maria Silva Afonso Nathalia Henrique Maximiano da Silva,seg,14-16,
+MAT002315-MATEMÁT.,Espaços Métricos,60.0,DM,3,1,B,Suzete Maria Silva Afonso Nathalia Henrique Maximiano da Silva,qua,8-10,
+MAT002315-MATEMÁT.,Espaços Métricos,60.0,DM,4,1,L,Suzete Maria Silva Afonso Nathalia Henrique Maximiano da Silva,seg,14-16,
+MAT002315-MATEMÁT.,Espaços Métricos,60.0,DM,4,1,L,Suzete Maria Silva Afonso Nathalia Henrique Maximiano da Silva,qua,8-10,
+MAT003215-MATEMÁT.,Espaços Topológicos,60.0,DM,3,2,B,Thiago de Melo,qua,8-10,
+MAT003215-MATEMÁT.,Espaços Topológicos,60.0,DM,3,2,B,Thiago de Melo,sex,8-10,
+MAT010715-MATEMÁT.,Estruturas Algébricas I,60.0,DM,2,1,C,Marco Antonio de Freitas Contessoto,seg,16-18,
+MAT010715-MATEMÁT.,Estruturas Algébricas I,60.0,DM,2,1,C,Marco Antonio de Freitas Contessoto,qua,16-18,
+MAT011215-MATEMÁT.,Estruturas Algébricas II,60.0,DM,2,2,C,Sara Díaz Cardell,seg,16-18,
+MAT011215-MATEMÁT.,Estruturas Algébricas II,60.0,DM,2,2,C,Sara Díaz Cardell,qua,16-18,
+MAT010615-MATEMÁT.,Filosofia da Educação: questões da Educação Matemática,60.0,DM,2,1,L,Marcelo de Carvalho Borba Letícia Carolina José,ter,16-18,
+MAT010615-MATEMÁT.,Filosofia da Educação: questões da Educação Matemática,60.0,DM,2,1,L,Marcelo de Carvalho Borba Letícia Carolina José,qui,8-10,
+MAT002415-MATEMÁT.,Funções de Variável Complexa I,60.0,DM,4,1,C,Thiago de Melo,seg,16-18,
+MAT002415-MATEMÁT.,Funções de Variável Complexa I,60.0,DM,4,1,C,Thiago de Melo,sex,8-10,new
+MAT003715-MATEMÁT.,Funções de Variável Complexa II,60.0,DM,4,2,B,Marta Cilene Gadotti,seg,14-16,
+MAT003715-MATEMÁT.,Funções de Variável Complexa II,60.0,DM,4,2,B,Marta Cilene Gadotti,qua,14-16,
+MAT008915-MATEMÁT.,Funções Elementares,60.0,DM,1,1,C,Ana Paula dos Santos Malheiros,ter,10-12,
+MAT008915-MATEMÁT.,Funções Elementares,60.0,DM,1,1,C,Ana Paula dos Santos Malheiros,qui,8-10,new
+MAT008815-MATEMÁT.,Geometria Analítica Espacial,60.0,DM,1,2,C,Heloisa da Silva,seg,10-12,
+MAT008815-MATEMÁT.,Geometria Analítica Espacial,60.0,DM,1,2,C,Heloisa da Silva,qui,8-10,
+MAT008715-MATEMÁT.,Geometria Analítica Plana,60.0,DM,1,1,C,Lucas Carato Mazzi,seg,10-12,
+MAT008715-MATEMÁT.,Geometria Analítica Plana,60.0,DM,1,1,C,Lucas Carato Mazzi,ter,8-10,
+MAT003015-MATEMÁT.,Geometria Diferencial,60.0,DM,3,2,B,Marcelo José Saia,ter,8-10,
+MAT003015-MATEMÁT.,Geometria Diferencial,60.0,DM,3,2,B,Marcelo José Saia,sex,10-12,
+MAT010515-MATEMÁT.,Geometria Euclidiana Espacial,60.0,DM,2,1,C,Rúbia Barcelos Amaral Schio,seg,14-16,
+MAT010515-MATEMÁT.,Geometria Euclidiana Espacial,60.0,DM,2,1,C,Rúbia Barcelos Amaral Schio,qui,14-16,
+MAT009215-MATEMÁT.,Geometria Euclidiana Plana,60.0,DM,1,2,C,Rúbia Barcelos Amaral Schio,ter,10-12,
+MAT009215-MATEMÁT.,Geometria Euclidiana Plana,60.0,DM,1,2,C,Rúbia Barcelos Amaral Schio,qui,14-16,new
+MAT002515-MATEMÁT.,História da Matemática,60.0,DM,4,2,L,Andreia Lunkes Conrado,seg,14-16,
+MAT002515-MATEMÁT.,História da Matemática,60.0,DM,4,2,L,Andreia Lunkes Conrado,sex,8-10,
+MAT001815-MATEMÁT.,História e Sociologia da Educação: Questões da Educação Matemática,60.0,DM,3,1,L,Heloisa da Silva Verusca Santos Bispo,seg,10-12,
+MAT001815-MATEMÁT.,História e Sociologia da Educação: Questões da Educação Matemática,60.0,DM,3,1,L,Heloisa da Silva Verusca Santos Bispo,ter,10-12,
+MAT002015-MATEMÁT.,Matemática da Educação Básica,60.0,DM,3,2,L,Heloisa da Silva,ter,8-10,new
+MAT002015-MATEMÁT.,Matemática da Educação Básica,60.0,DM,3,2,L,Heloisa da Silva,sex,16-18,new
+MAT009015-MATEMÁT.,Matemática Elementar,60.0,DM,1,1,C,Rúbia Barcelos Amaral Schio,qua,10-12,
+MAT009015-MATEMÁT.,Matemática Elementar,60.0,DM,1,1,C,Rúbia Barcelos Amaral Schio,sex,10-12,
+MAT002715-MATEMÁT.,Matemática Elementar do Ponto de Vista Avançado,60.0,DM,4,2,L,Andreia Lunkes Conrado,seg,16-18,
+MAT002715-MATEMÁT.,Matemática Elementar do Ponto de Vista Avançado,60.0,DM,4,2,L,Andreia Lunkes Conrado,qua,14-16,new
+MAT002615-MATEMÁT.,Tecnologia no Ensino de Matemática,60.0,DM,4,2,L,Marcelo de Carvalho Borba,seg,8-10,new
+MAT002615-MATEMÁT.,Tecnologia no Ensino de Matemática,60.0,DM,4,2,L,Marcelo de Carvalho Borba,qua,16-18,new
+MAT003415-MATEMÁT.,Teoria da Medida e Integração,60.0,DM,4,1,B,Jamil Viana Pereira,ter,16-18,
+MAT003415-MATEMÁT.,Teoria da Medida e Integração,60.0,DM,4,1,B,Jamil Viana Pereira,sex,14-16,
+MAT003515-MATEMÁT.,Teoria dos Conjuntos,60.0,DM,4,2,B,,qua,16-18,
+MAT003515-MATEMÁT.,Teoria dos Conjuntos,60.0,DM,4,2,B,,ter,10-12,new
+MAT003615-MATEMÁT.,Teoria dos Corpos,60.0,DM,4,2,B,Carina Alves,seg,16-18,
+MAT003615-MATEMÁT.,Teoria dos Corpos,60.0,DM,4,2,B,Carina Alves,ter,14-16,
+MAT002915-MATEMÁT.,Teoria dos Grupos,60.0,DM,3,1,B,Carina Alves,qui,14-16,new
+MAT002915-MATEMÁT.,Teoria dos Grupos,60.0,DM,3,1,B,Carina Alves,ter,14-16,new
+MAT002215-MATEMÁT.,Teoria dos Números,60.0,DM,3,1,B,Thais Fernanda Mendes Monis  Gabriel de Almeida Prado Modolo,seg,10-12,
+MAT002215-MATEMÁT.,Teoria dos Números,60.0,DM,3,1,B,Thais Fernanda Mendes Monis  Gabriel de Almeida Prado Modolo,qui,14-16,
+MAT002215-MATEMÁT.,Teoria dos Números,60.0,DM,4,1,L,Thais Fernanda Mendes Monis  Gabriel de Almeida Prado Modolo,seg,10-12,
+MAT002215-MATEMÁT.,Teoria dos Números,60.0,DM,4,1,L,Thais Fernanda Mendes Monis  Gabriel de Almeida Prado Modolo,qui,14-16,
+EDO204515-MATEMÁT.,Didática I,60.0,EDO,3,1,L,Maria Antonia Ramos de Azevedo,qui,14-18,
+EDO204615-MATEMÁT.,Didática II,60.0,EDO,3,2,L,Maria Antonia Ramos de Azevedo,ter,14-18,
+EDO212815-MATEMÁT.,Política Educacional Brasileira,60.0,EDO,2,2,L,Raquel Fontes Borghi,ter,14-18,
+EDO199115-MATEMÁT.,Prática de Ensino e Estágio Supervisionado I,90.0,EDO,3,1,L,Priscila de Oliveira e Silva,seg,14-16,
+EDO199115-MATEMÁT.,Prática de Ensino e Estágio Supervisionado I,90.0,EDO,3,1,L,Priscila de Oliveira e Silva,sex,14-18,
+EDO199415-MATEMÁT.,Prática de Ensino e Estágio Supervisionado II,105.0,EDO,3,2,L,,seg,8-10,
+EDO199415-MATEMÁT.,Prática de Ensino e Estágio Supervisionado II,105.0,EDO,3,2,L,,sex,8-12,new
+EDO199415-MATEMÁT.,Prática de Ensino e Estágio Supervisionado II,105.0,EDO,3,2,L,,sex,18-19,new
+EDO202915-MATEMÁT.,Prática de Ensino e Estágio Supervisionado III,105.0,EDO,4,1,L,Diana Carolina Pineda Pérez,ter,14-16,new
+EDO202915-MATEMÁT.,Prática de Ensino e Estágio Supervisionado III,105.0,EDO,4,1,L,Diana Carolina Pineda Pérez,qua,14-16,
+EDO202915-MATEMÁT.,Prática de Ensino e Estágio Supervisionado III,105.0,EDO,4,1,L,Diana Carolina Pineda Pérez,qua,16-18,new
+EDO202915-MATEMÁT.,Prática de Ensino e Estágio Supervisionado III,105.0,EDO,4,1,L,Diana Carolina Pineda Pérez,qua,18-19,
+EDO203115-MATEMÁT.,Prática de Ensino e Estágio Supervisionado IV,105.0,EDO,4,2,L,,seg,18-19,
+EDO203115-MATEMÁT.,Prática de Ensino e Estágio Supervisionado IV,105.0,EDO,4,2,L,,ter,8-10,
+EDO203115-MATEMÁT.,Prática de Ensino e Estágio Supervisionado IV,105.0,EDO,4,2,L,,ter,14-18,new
+EDO204815-MATEMÁT.,Psicologia da Aprendizagem,60.0,EDO,3,2,L,Cesar Donizeti Pereira Leite,qua,8-12,
+EDO204715-MATEMÁT.,Psicologia do Desenvolvimento,60.0,EDO,3,1,L,Sueli de Fátima Caetano Coppi,ter,14-18,
+EMA986515-MATEMÁT.,Cálculo Numérico,60.0,EMA,2,2,C,Maria Helena Moreira Morais,qui,16-18,
+EMA986515-MATEMÁT.,Cálculo Numérico,60.0,EMA,2,2,C,Maria Helena Moreira Morais,sex,14-16,
+EMA965815-MATEMÁT.,Estatística,60.0,EMA,3,2,C,Selene Maria Coelho Loibel,sex,14-16,
+EMA965815-MATEMÁT.,Estatística,60.0,EMA,3,2,C,Selene Maria Coelho Loibel,qui,14-16,new
+EMA980215-MATEMÁT.,Introdução à Ciência da Computação,60.0,EMA,1,2,C,Marcos Tadeu dos Santos,sex,14-18,
+EMA967715-MATEMÁT.,Métodos Matemáticos para Física,60.0,EMA,4,1,B,Luís Renato de Campos Damin,seg,10-12,
+EMA967715-MATEMÁT.,Métodos Matemáticos para Física,60.0,EMA,4,1,B,Luís Renato de Campos Damin,qua,14-16,
+EMA965715-MATEMÁT.,Probabilidade,60.0,EMA,3,1,C,José Silvio Govone,ter,8-10,
+EMA965715-MATEMÁT.,Probabilidade,60.0,EMA,3,1,C,José Silvio Govone,sex,10-12,new
+FSI226615-MATEMÁT.,Física Geral I,60.0,FSI,1,2,C,,ter,8-10,
+FSI226615-MATEMÁT.,Física Geral I,60.0,FSI,1,2,C,,sex,10-12,
+FSI228715-MATEMÁT.,Física Geral II,60.0,FSI,2,1,C,Luís Renato de Campos Damin,ter,10-12,
+FSI228715-MATEMÁT.,Física Geral II,60.0,FSI,2,1,C,Luís Renato de Campos Damin,qui,16-18,new
+FSI228815-MATEMÁT.,Física Geral III,60.0,FSI,2,2,C,,ter,10-12,
+FSI228815-MATEMÁT.,Física Geral III,60.0,FSI,2,2,C,,sex,10-12,new
+PROGRADMAT-MATEMÁT.,"Libras, Educação Especial e Inclusiva",60.0,PROGRAD,1,1,C,,sab,14-18,
