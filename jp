@@ -1,0 +1,7 @@
+phi[s_, m_] := m-s^2
+G11[s_, m_] := 2*D[phi[s, m], s]^2
+G22[s_, m_] := 2*D[phi[s, m], m]^2
+G[s_, m_] := G11[s, m]*G22[s, m]
+H[s_, m_] := 1/Sqrt[G[s, m]]
+
+R[s_, m_] := H[s,m]*(D[ H[s,m]*D[G11[s,m], s] , s] + D[ H[s,m]*D[G22[s,m], m] , m] )
